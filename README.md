@@ -24,5 +24,3 @@ for i in profiles:
 input("")
 
 ```
-
-

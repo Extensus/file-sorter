@@ -14,8 +14,7 @@ class databaseApi:
                         "\nVideo Extensions=['mp4', 'mpg', 'mpeg', 'avi', 'flv', 'mov', 'mkv', 'mwv', 'h264', 'm4v']"
                         "\nImage Extensions=['png', 'jpeg', 'jpg', 'gif', 'svg', 'bmp', 'psd', 'tiff', 'tif']"
                         "\nDocument Extensions=['txt', 'pdf', 'csv', 'xls', 'xlsx', 'ods', 'doc', 'docx', 'tex', "
-                        "'odt', 'ppt', "
-                        "'pptx', 'log'] "
+                        "'odt', 'ppt', 'pptx', 'log', 'mobi', 'html', 'epub'] "
                         "\nCompressed File Extensions=['zip', 'z', '7z', 'rar', 'tar', 'gz', 'rpm', 'pkg', 'deb']"
                         "\nExecutable Extensions=['dmg', 'iso', 'exe']"
                         "\nWord Extensions=['doc', 'docx']"
@@ -39,16 +38,6 @@ class databaseApi:
                         "\nSort Audio=False"
                         "\nSort Video=False"
                         )
-        '''elif isfile:
-            with open("./file_sort_var_db.txt", "r+") as f:
-                content_test = f.readlines()
-                content_test = set(content_test)
-                if content_test == set():
-                    f.write("Success!!")
-                else:
-                    pass
-        else:
-            pass'''
 
     def __init__(self):
         self.content = None
@@ -100,6 +89,5 @@ class databaseApi:
 if __name__ == '__main__':
     api = databaseApi()
     api.get_from_base()
-    print(api.content)
     print(api.fetchedVars)
-    api.write_to_base()
+
