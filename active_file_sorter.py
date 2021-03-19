@@ -39,6 +39,10 @@ class file_sorter_class(object):
     video_file_mapping = fetchedVars['Sort Video']
     video_file_map = collections.defaultdict(list)
 
+    destination_dir_list = []
+    ext_list_to_destination_dir = {}
+
+
     def map_files(self):
         try:
             if self.down_file_mapping:
@@ -82,7 +86,7 @@ class file_sorter_class(object):
     def send_files_to_dirs(self):
         try:
             if self.down_file_mapping:
-                for f_ext, f_list in self.down_file_mapping.items():
+                for f_ext, f_list in self.down_file_map.items():
                     if f_ext in self.EXT_AUDIO:
                         for file in f_list:
                             os.rename(os.path.join(self.DOWN_DIR, file), os.path.join(self.MUSIC_DIR, file))
