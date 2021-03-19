@@ -1,4 +1,4 @@
-from file_sorter_class import *
+from active_file_sorter import *
 
 sorter = file_sorter_class()
 
