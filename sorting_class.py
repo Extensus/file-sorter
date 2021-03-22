@@ -1,5 +1,7 @@
 import os
 import collections
+import tree_dependency_class
+
 
 class file_sort_instance():
     def generate_file_map(self, is_mapping, map, dir):
