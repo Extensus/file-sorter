@@ -7,7 +7,7 @@ __pycache__/
 *.so
 
 # Databases
-.txt
+*.txt
 
 # Distribution / packaging
 .Python
