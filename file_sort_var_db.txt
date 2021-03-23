@@ -13,7 +13,7 @@ Power Point Extensions=['ppt', 'pptx', 'pptm', 'ppsx']
 
 #> SUPPORTED DIRECTORIES TO SORT TO <#
 
-Downloads Directory=C:\Users\usr\Downloads
+Downloads Directory=C:\Users\user\Downloads
 Documents Directory=C:\Users\usr\Documents
 Desktop Directory=C:\Users\usr\Desktop
 Music Directory=C:\Users\usr\Music
