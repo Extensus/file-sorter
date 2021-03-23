@@ -5,8 +5,8 @@ class databaseApi:
 
     def file_maintainance(self):
         isfile = os.path.isfile("./file_sort_var_db.txt") and os.access("./file_sort_var_db.txt", os.R_OK)
-        if not isfile:
-            with open("./file_sort_var_db.txt", "w+") as f:
+        if not isfile:      # checks if the file exists and if it is accessible
+            with open("./file_sort_var_db.txt", "w+") as f:     # creates template file if isfile == False
                 f.write("<=#=#=#=> SETTINGS <=#=#=#=>"
 
                         "\n\n#> EXTENSION LIST (ADD IF YOU NEED MORE, KEEP EXISTING FORMAT) <#"
@@ -39,7 +39,7 @@ class databaseApi:
                         "\nSort Video=False"
                         )
 
-    def __init__(self):
+    def __init__(self):     # assigns class variables
         self.content = None
         self.fetchedVars = {}
         self.vars = []
@@ -47,7 +47,7 @@ class databaseApi:
 
         self.file_maintainance()
 
-    def variable_fetching(self, item):
+    def variable_fetching(self, item):      # assigns the variables and contents from settings db file (fetching)
         try:
             var = None
             cont = None
@@ -60,7 +60,8 @@ class databaseApi:
         return var, cont
 
     def get_from_base(self):
-        self.file_maintainance()
+        self.file_maintainance()    # checks if the file has been corrupted or deleted
+        # gets file contents with previously created variable_fetching function
         with open('./file_sort_var_db.txt', 'r+') as f:
             self.content = f.read().splitlines()
             for item in self.content:
@@ -70,12 +71,12 @@ class databaseApi:
 
             return self.fetchedVars
 
-    def change_var(self, var):
+    def change_var(self, var):      # placeholder for changing variables dynamically
 
         pass
 
     def write_to_base(self):
-        with open('./file_sort_var_db.txt', 'w') as f:
+        with open('./file_sort_var_db.txt', 'w') as f:      # updates database through overwriting everything
             try:
                 if self.content is not None:
                     for x in self.fetchedVars:

@@ -1,9 +1,11 @@
 import collections
 from pprint import pprint
 from datastack_handler import *
-from tree_dependency_class import *
 
-class file_sorter_class(object):
+
+class file_sorter_class(object):    # main file management
+
+    # Variable assignment ; class and method assignment
     api = databaseApi()
     fetchedVars = api.get_from_base()
     pprint(fetchedVars)
@@ -39,11 +41,13 @@ class file_sorter_class(object):
     video_file_mapping = fetchedVars['Sort Video']
     video_file_map = collections.defaultdict(list)
 
+
+    # directory and file-ext dependency storage
     destination_dir_list = []
     ext_list_to_destination_dir = {}
 
 
-    def map_files(self):
+    def map_files(self):    # file mapping method
         try:
             if self.down_file_mapping:
                 file_list = os.listdir(self.DOWN_DIR)
@@ -73,17 +77,17 @@ class file_sorter_class(object):
                         file_ext = file_name.split('.')[-1]
                         self.audio_file_map[file_ext].append(file_name)
 
-            if self.video_file_mapping:
-                file_list = os.listdir(self.VIDEO_DIR)
+            if self.video_file_mapping:     # checks if directory should be sorted
+                file_list = os.listdir(self.VIDEO_DIR)      # gets all content of directory
                 for file_name in file_list:
-                    if file_name[0] != '.':
-                        file_ext = file_name.split('.')[-1]
-                        self.video_file_map[file_ext].append(file_name)
+                    if file_name[0] != '.':     # excepts files with . in the beginning (i.e.: .gitignore)
+                        file_ext = file_name.split('.')[-1]     # extract file extension
+                        self.video_file_map[file_ext].append(file_name)     # adds file name to extension map
 
         except IndexError:
-            print(f"No such directory (root = %s" % self.DOWN_DIR)
+            print(f"No such directory (root = %s" % self.DOWN_DIR)      # exception handling for not existing dirs
 
-    def send_files_to_dirs(self):
+    def send_files_to_dirs(self):       # file relocating (one if-block per monitored directory)
         try:
             if self.down_file_mapping:
                 for f_ext, f_list in self.down_file_map.items():
