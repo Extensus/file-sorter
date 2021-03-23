@@ -7,7 +7,7 @@ __pycache__/
 *.so
 
 # Databases
-*.txt
+file_sort_var_db.txt
 
 # Distribution / packaging
 .Python
