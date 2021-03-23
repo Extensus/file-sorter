@@ -18,7 +18,7 @@ Documents Directory=C:\Users\usr\Documents
 Desktop Directory=C:\Users\usr\Desktop
 Music Directory=C:\Users\usr\Music
 Video Directory=C:\Users\usr\Video
-\Pictures Directory=C:\Users\usr\Pictures
+Pictures Directory=C:\Users\usr\Pictures
 Zip File Directory=C:\Users\usr\Desktop
 Executable Directory=C:\Users\usr\Desktop
 

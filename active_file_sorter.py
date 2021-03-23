@@ -10,37 +10,39 @@ class file_sorter_class(object):    # main file management
     fetchedVars = api.get_from_base()
     pprint(fetchedVars)
 
-    EXT_AUDIO = fetchedVars['Audio Extensions']
-    EXT_VIDEO = fetchedVars['Video Extensions']
-    EXT_IMAGES = fetchedVars['Image Extensions']
-    EXT_DOCS = fetchedVars['Document Extensions']
-    EXT_COMPRESSED = fetchedVars['Compressed File Extensions']
-    EXT_INSTALLATIONS = fetchedVars['Executable Extensions']
+    try:
+        EXT_AUDIO = fetchedVars['Audio Extensions']
+        EXT_VIDEO = fetchedVars['Video Extensions']
+        EXT_IMAGES = fetchedVars['Image Extensions']
+        EXT_DOCS = fetchedVars['Document Extensions']
+        EXT_COMPRESSED = fetchedVars['Compressed File Extensions']
+        EXT_INSTALLATIONS = fetchedVars['Executable Extensions']
 
-    EXT_WORD = fetchedVars['Word Extensions']
-    EXT_PPP = fetchedVars['Power Point Extensions']
+        EXT_WORD = fetchedVars['Word Extensions']
+        EXT_PPP = fetchedVars['Power Point Extensions']
 
-    DOWN_DIR = fetchedVars['Downloads Directory']
-    DOC_DIR = fetchedVars['Documents Directory']
-    DESK_DIR = fetchedVars['Desktop Directory']
-    MUSIC_DIR = fetchedVars['Music Directory']
-    VIDEO_DIR = fetchedVars['Video Directory']
+        DOWN_DIR = fetchedVars['Downloads Directory']
+        DOC_DIR = fetchedVars['Documents Directory']
+        DESK_DIR = fetchedVars['Desktop Directory']
+        MUSIC_DIR = fetchedVars['Music Directory']
+        VIDEO_DIR = fetchedVars['Video Directory']
 
-    image_dir = fetchedVars['Pictures Directory']
-    compressed_dir = fetchedVars['Zip File Directory']
-    exe_dir = fetchedVars['Executable Directory']
+        image_dir = fetchedVars['Pictures Directory']
+        compressed_dir = fetchedVars['Zip File Directory']
+        exe_dir = fetchedVars['Executable Directory']
 
-    down_file_mapping = fetchedVars['Sort Downloads']
-    down_file_map = collections.defaultdict(list)
-    doc_file_mapping = fetchedVars['Sort Documents']
-    doc_file_map = collections.defaultdict(list)
-    desktop_file_mapping = fetchedVars['Sort Desktop']
-    desktop_file_map = collections.defaultdict(list)
-    audio_file_mapping = fetchedVars['Sort Audio']
-    audio_file_map = collections.defaultdict(list)
-    video_file_mapping = fetchedVars['Sort Video']
-    video_file_map = collections.defaultdict(list)
-
+        down_file_mapping = fetchedVars['Sort Downloads']
+        down_file_map = collections.defaultdict(list)
+        doc_file_mapping = fetchedVars['Sort Documents']
+        doc_file_map = collections.defaultdict(list)
+        desktop_file_mapping = fetchedVars['Sort Desktop']
+        desktop_file_map = collections.defaultdict(list)
+        audio_file_mapping = fetchedVars['Sort Audio']
+        audio_file_map = collections.defaultdict(list)
+        video_file_mapping = fetchedVars['Sort Video']
+        video_file_map = collections.defaultdict(list)
+    except KeyError:
+        print("Some KeyValue in DB is corrupted")
 
     # directory and file-ext dependency storage
     destination_dir_list = []
